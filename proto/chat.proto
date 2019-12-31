@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package grpc;
+
+message Nulo {}
+
+message Mensaje {
+    string mensaje = 1;
+    string id = 2;
+    string ts = 3;
+}
+
+service ServidorChat{
+    rpc FlujoMensajes (Nulo) returns (stream Mensaje);
+    rpc EnviarMensaje (Mensaje) returns (Nulo);
+}
