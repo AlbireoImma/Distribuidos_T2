@@ -8,9 +8,22 @@ message Mensaje {
     string mensaje = 1;
     string id = 2;
     string ts = 3;
+    string sender = 4;
+    string destino = 5;
+}
+
+message Registro {
+    string user = 1;
+}
+
+message Listado {
+    string lista = 1;
 }
 
 service ServidorChat{
     rpc FlujoMensajes (Nulo) returns (stream Mensaje);
     rpc EnviarMensaje (Mensaje) returns (Nulo);
+    rpc ObtenerLista (Nulo) returns (Listado);
+    rpc Registrar (Registro) returns (Nulo);
+    rpc Desconectar (Registro) returns (Nulo);
 }
