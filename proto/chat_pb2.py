@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='grpc',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nchat.proto\x12\x04grpc\"\x06\n\x04Nulo\"2\n\x07Mensaje\x12\x0f\n\x07mensaje\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\n\n\x02ts\x18\x03 \x01(\t2h\n\x0cServidorChat\x12,\n\rFlujoMensajes\x12\n.grpc.Nulo\x1a\r.grpc.Mensaje0\x01\x12*\n\rEnviarMensaje\x12\r.grpc.Mensaje\x1a\n.grpc.Nulob\x06proto3')
+  serialized_pb=_b('\n\nchat.proto\x12\x04grpc\"\x06\n\x04Nulo\"S\n\x07Mensaje\x12\x0f\n\x07mensaje\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\n\n\x02ts\x18\x03 \x01(\t\x12\x0e\n\x06sender\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x65stino\x18\x05 \x01(\t\"\x18\n\x08Registro\x12\x0c\n\x04user\x18\x01 \x01(\t\"\x18\n\x07Listado\x12\r\n\x05lista\x18\x01 \x01(\t2\xe7\x01\n\x0cServidorChat\x12,\n\rFlujoMensajes\x12\n.grpc.Nulo\x1a\r.grpc.Mensaje0\x01\x12*\n\rEnviarMensaje\x12\r.grpc.Mensaje\x1a\n.grpc.Nulo\x12)\n\x0cObtenerLista\x12\n.grpc.Nulo\x1a\r.grpc.Listado\x12\'\n\tRegistrar\x12\x0e.grpc.Registro\x1a\n.grpc.Nulo\x12)\n\x0b\x44\x65sconectar\x12\x0e.grpc.Registro\x1a\n.grpc.Nulob\x06proto3')
 )
 
 
@@ -78,6 +78,20 @@ _MENSAJE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='sender', full_name='grpc.Mensaje.sender', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='destino', full_name='grpc.Mensaje.destino', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -91,11 +105,75 @@ _MENSAJE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=28,
-  serialized_end=78,
+  serialized_end=111,
+)
+
+
+_REGISTRO = _descriptor.Descriptor(
+  name='Registro',
+  full_name='grpc.Registro',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user', full_name='grpc.Registro.user', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=113,
+  serialized_end=137,
+)
+
+
+_LISTADO = _descriptor.Descriptor(
+  name='Listado',
+  full_name='grpc.Listado',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='lista', full_name='grpc.Listado.lista', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=139,
+  serialized_end=163,
 )
 
 DESCRIPTOR.message_types_by_name['Nulo'] = _NULO
 DESCRIPTOR.message_types_by_name['Mensaje'] = _MENSAJE
+DESCRIPTOR.message_types_by_name['Registro'] = _REGISTRO
+DESCRIPTOR.message_types_by_name['Listado'] = _LISTADO
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Nulo = _reflection.GeneratedProtocolMessageType('Nulo', (_message.Message,), {
@@ -112,6 +190,20 @@ Mensaje = _reflection.GeneratedProtocolMessageType('Mensaje', (_message.Message,
   })
 _sym_db.RegisterMessage(Mensaje)
 
+Registro = _reflection.GeneratedProtocolMessageType('Registro', (_message.Message,), {
+  'DESCRIPTOR' : _REGISTRO,
+  '__module__' : 'chat_pb2'
+  # @@protoc_insertion_point(class_scope:grpc.Registro)
+  })
+_sym_db.RegisterMessage(Registro)
+
+Listado = _reflection.GeneratedProtocolMessageType('Listado', (_message.Message,), {
+  'DESCRIPTOR' : _LISTADO,
+  '__module__' : 'chat_pb2'
+  # @@protoc_insertion_point(class_scope:grpc.Listado)
+  })
+_sym_db.RegisterMessage(Listado)
+
 
 
 _SERVIDORCHAT = _descriptor.ServiceDescriptor(
@@ -120,8 +212,8 @@ _SERVIDORCHAT = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=80,
-  serialized_end=184,
+  serialized_start=166,
+  serialized_end=397,
   methods=[
   _descriptor.MethodDescriptor(
     name='FlujoMensajes',
@@ -138,6 +230,33 @@ _SERVIDORCHAT = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=_MENSAJE,
+    output_type=_NULO,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ObtenerLista',
+    full_name='grpc.ServidorChat.ObtenerLista',
+    index=2,
+    containing_service=None,
+    input_type=_NULO,
+    output_type=_LISTADO,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Registrar',
+    full_name='grpc.ServidorChat.Registrar',
+    index=3,
+    containing_service=None,
+    input_type=_REGISTRO,
+    output_type=_NULO,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Desconectar',
+    full_name='grpc.ServidorChat.Desconectar',
+    index=4,
+    containing_service=None,
+    input_type=_REGISTRO,
     output_type=_NULO,
     serialized_options=None,
   ),
