@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  servidor:
+    container_name: Servidor
+    stdin_open: true
+    tty: true
+    build: servidor/
+    command: python ./Servidor.py
+    ports:
+      - "12000:12000"
+    network_mode: host
+    volumes:
+      - ./servidor:/servidor
+  cliente:
+    container_name: Cliente
+    stdin_open: true
+    tty: true
+    build: cliente/
+    command: python ./Dummy.py
+    network_mode: host
+    volumes:
+      - ./cliente:/cliente
+    depends_on:
+      - servidor
