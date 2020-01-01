@@ -13,7 +13,6 @@ services:
     volumes:
       - ./servidor:/servidor
   cliente:
-    container_name: Cliente
     stdin_open: true
     tty: true
     build: cliente/
