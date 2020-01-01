@@ -2,7 +2,8 @@ import time
 
 print("Arquitectura levantada")
 print("Para ejecutar una terminal de cliente ejecutar:")
-print("$ docker exec -it Cliente python ./Cliente.py")
+print("docker exec -it IDCONTAINER python ./Cliente.py")
+print("Para obtener la id del container usar docker container ls")
 
 while True:
     time.sleep(100)
