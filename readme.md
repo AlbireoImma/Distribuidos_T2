@@ -1,6 +1,5 @@
-# Distribuidos_T2 Parte I
-
-Tarea #2 Sistemas Distribuidos - 2019-II
+# Tarea #2 Sistemas Distribuidos - 2019-II
+## Parte I (chat rpc con [gRPC](https://grpc.io/docs/quickstart/python/))
 
 Para ejecutar el docker primero debemos construirlo:
 
@@ -17,15 +16,18 @@ Para levantar la arquitectura completa hacemos (nos solicitan 2 clientes al meno
 - Para enviar mensajes desde el cliente se debe acceder a la consola de el, para esto al levantar con docker-compose up la arquitectura se imprimirá en la terminal el comando para abrirla, en donde debemos reemplazar el container correspondiente para usarlo (buscar container con docker container ls)
 
 Comandos especiales del chat
--- ?close - Cierra el chat y libera el nombre de usuario
--- ?list - Muestra a todos los participantes del servidor
-Formato de los mensajes
-usuario mensaje
-ejemplo: user hola!
-** El nombre de usuario es unico y no tolera el uso de espacios
-** Se puede enviar un mensaje global con el usuario all como destinatario
+- ?close - Cierra el chat y libera el nombre de usuario
+- ?list - Muestra a todos los participantes del servidor
+Formato de los mensajes: *usuario mensaje* (ejemplo: user hola!)
+
+**El nombre de usuario es unico y no tolera el uso de espacios**
+
+**Se puede enviar un mensaje global con el usuario all como destinatario**
 
 Definiciones gRPC en ./proto/chat.proto copiadas en cada servicio por simplicidad (autogenerado por gRPC)
+
 Archivo servidor en ./Servidor.py
+
 Archivo cliente en ./Cliente.py
+
 Log autogenerado en ./log.txt cuenta con conexiones/desconexiones y detalle de los mensajes
