@@ -18,6 +18,7 @@ Para levantar la arquitectura completa hacemos (nos solicitan 2 clientes al meno
 Comandos especiales del chat
 - ?close - Cierra el chat y libera el nombre de usuario
 - ?list - Muestra a todos los participantes del servidor
+
 Formato de los mensajes: *usuario mensaje* (ejemplo: user hola!)
 
 **El nombre de usuario es unico y no tolera el uso de espacios**
