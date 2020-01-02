@@ -64,6 +64,17 @@ class ServidorChat(RPC.ServidorChatServicer):
             self.clientes.remove(user)
         return Chat.Nulo()
     
+    def Historial(self, request: Chat.Registro, context):
+        user = request.user
+        lista = Chat.Listado()
+        lista.lista = ""
+        for mensaje in self.chats:
+            if mensaje.sender == user:
+                aux = mensaje.ts + " " + mensaje.destino + "<- " + mensaje.mensaje
+                lista.lista += aux
+                lista.lista += "$"
+        return lista
+    
     
 
 if __name__ == "__main__":

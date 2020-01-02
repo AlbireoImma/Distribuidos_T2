@@ -26,4 +26,5 @@ service ServidorChat{
     rpc ObtenerLista (Nulo) returns (Listado);
     rpc Registrar (Registro) returns (Nulo);
     rpc Desconectar (Registro) returns (Nulo);
+    rpc Historial (Registro) returns (Listado);
 }

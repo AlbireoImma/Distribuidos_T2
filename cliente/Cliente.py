@@ -30,6 +30,7 @@ class Cliente:
         print("Para obtener los datos de las personas en el servidor usar ?all")
         print("Los mensajes se envian de la forma: destino mensaje")
         print("Para enviar un mensaje global usar all como destino del mensaje")
+        print("Para obtener el historial de mensajes enviados usar ?chat")
         print("Usar ?close para desconectarse del servidor")
         while True:
             mensaje = input()
@@ -44,6 +45,12 @@ class Cliente:
                 Usuarios = self.conexion.ObtenerLista(Chat.Nulo())
                 Usuarios = Usuarios.lista.split(" ")
                 print("### Usuarios en el servidor ", Usuarios)
+            elif mensaje == "?chat":
+                mensajes = self.conexion.Historial(reg)
+                mensajes = mensajes.lista.split("$")
+                print("Historial de mensajes enviados")
+                for men in mensajes:
+                    print(">> ",men)
             else:
                 if len(mensaje.split(" ")) > 1:
                     dest, mensaje  = mensaje.split(" ",1)

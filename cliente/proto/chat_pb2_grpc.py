@@ -39,6 +39,11 @@ class ServidorChatStub(object):
         request_serializer=chat__pb2.Registro.SerializeToString,
         response_deserializer=chat__pb2.Nulo.FromString,
         )
+    self.Historial = channel.unary_unary(
+        '/grpc.ServidorChat/Historial',
+        request_serializer=chat__pb2.Registro.SerializeToString,
+        response_deserializer=chat__pb2.Listado.FromString,
+        )
 
 
 class ServidorChatServicer(object):
@@ -80,6 +85,13 @@ class ServidorChatServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Historial(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_ServidorChatServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -107,6 +119,11 @@ def add_ServidorChatServicer_to_server(servicer, server):
           servicer.Desconectar,
           request_deserializer=chat__pb2.Registro.FromString,
           response_serializer=chat__pb2.Nulo.SerializeToString,
+      ),
+      'Historial': grpc.unary_unary_rpc_method_handler(
+          servicer.Historial,
+          request_deserializer=chat__pb2.Registro.FromString,
+          response_serializer=chat__pb2.Listado.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

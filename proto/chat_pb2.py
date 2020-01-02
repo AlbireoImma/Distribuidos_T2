@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='grpc',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nchat.proto\x12\x04grpc\"\x06\n\x04Nulo\"S\n\x07Mensaje\x12\x0f\n\x07mensaje\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\n\n\x02ts\x18\x03 \x01(\t\x12\x0e\n\x06sender\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x65stino\x18\x05 \x01(\t\"\x18\n\x08Registro\x12\x0c\n\x04user\x18\x01 \x01(\t\"\x18\n\x07Listado\x12\r\n\x05lista\x18\x01 \x01(\t2\xe7\x01\n\x0cServidorChat\x12,\n\rFlujoMensajes\x12\n.grpc.Nulo\x1a\r.grpc.Mensaje0\x01\x12*\n\rEnviarMensaje\x12\r.grpc.Mensaje\x1a\n.grpc.Nulo\x12)\n\x0cObtenerLista\x12\n.grpc.Nulo\x1a\r.grpc.Listado\x12\'\n\tRegistrar\x12\x0e.grpc.Registro\x1a\n.grpc.Nulo\x12)\n\x0b\x44\x65sconectar\x12\x0e.grpc.Registro\x1a\n.grpc.Nulob\x06proto3')
+  serialized_pb=_b('\n\nchat.proto\x12\x04grpc\"\x06\n\x04Nulo\"S\n\x07Mensaje\x12\x0f\n\x07mensaje\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\n\n\x02ts\x18\x03 \x01(\t\x12\x0e\n\x06sender\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x65stino\x18\x05 \x01(\t\"\x18\n\x08Registro\x12\x0c\n\x04user\x18\x01 \x01(\t\"\x18\n\x07Listado\x12\r\n\x05lista\x18\x01 \x01(\t2\x93\x02\n\x0cServidorChat\x12,\n\rFlujoMensajes\x12\n.grpc.Nulo\x1a\r.grpc.Mensaje0\x01\x12*\n\rEnviarMensaje\x12\r.grpc.Mensaje\x1a\n.grpc.Nulo\x12)\n\x0cObtenerLista\x12\n.grpc.Nulo\x1a\r.grpc.Listado\x12\'\n\tRegistrar\x12\x0e.grpc.Registro\x1a\n.grpc.Nulo\x12)\n\x0b\x44\x65sconectar\x12\x0e.grpc.Registro\x1a\n.grpc.Nulo\x12*\n\tHistorial\x12\x0e.grpc.Registro\x1a\r.grpc.Listadob\x06proto3')
 )
 
 
@@ -213,7 +213,7 @@ _SERVIDORCHAT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=166,
-  serialized_end=397,
+  serialized_end=441,
   methods=[
   _descriptor.MethodDescriptor(
     name='FlujoMensajes',
@@ -258,6 +258,15 @@ _SERVIDORCHAT = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_REGISTRO,
     output_type=_NULO,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Historial',
+    full_name='grpc.ServidorChat.Historial',
+    index=5,
+    containing_service=None,
+    input_type=_REGISTRO,
+    output_type=_LISTADO,
     serialized_options=None,
   ),
 ])
